@@ -5,17 +5,22 @@ import { fileURLToPath } from "url";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Corrige __dirname para ES Modules
+// Necessário para __dirname funcionar com ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 🔥 EXPÕE A PASTA PUBLIC (ISS0 QUE ESTAVA FALTANDO)
+// Middleware
+app.use(express.json());
+
+// 👉 SERVIR A PASTA PUBLIC (ISSO ESTAVA FALTANDO OU ERRADO)
 app.use(express.static(path.join(__dirname, "public")));
 
-// Rota principal
+// Página inicial
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
+
+// (depois aqui fica sua rota do Mercado Pago /create_preference)
 
 // Start
 app.listen(PORT, () => {
