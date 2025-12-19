@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout - Antera Store</title>
+</head>
+<body>
+
+<h1>Finalizar Pedido</h1>
+
+<div id="resumo"></div>
+
+<p><strong>Total:</strong> R$ <span id="total"></span></p>
+
+<button onclick="voltar()">Voltar</button>
+
+<script>
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    let total = 0;
+    const resumo = document.getElementById("resumo");
+
+    carrinho.forEach(item => {
+        total += item.preco;
+        const p = document.createElement("p");
+        p.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+        resumo.appendChild(p);
+    });
+
+    document.getElementById("total").textContent = total.toFixed(2);
+
+    function voltar() {
+        history.back();
+    }
+</script>
+
+</body>
+</html>
+
