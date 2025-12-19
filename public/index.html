@@ -1,117 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antera Store - Cosméticos e Presentes Especiais</title>
+  <meta charset="UTF-8">
+  <title>Antera Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- ================= CABEÇALHO ================= -->
-<header>
-    <div class="container">
-        <div class="logo-container">
-            <img src="/imagens/logo.png" alt="Antera Store">
-        </div>
+  <!-- HEADER -->
+  <header class="header">
+    <img src="/imagens/logo.png" alt="Antera Store" class="logo">
+    <button id="cartButton">
+      🛒 Carrinho (<span class="cart-count">0</span>)
+    </button>
+  </header>
 
-        <div class="carrinho-icon">
-            <a href="#" class="cart-icon" id="cartButton">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count">0</span>
-            </a>
-        </div>
-    </div>
-</header>
+  <!-- PRODUTOS -->
+  <main>
+    <h1>Nossos Produtos</h1>
+    <div id="produtosGrid" class="produtos-grid"></div>
+  </main>
 
-<!-- ================= CATEGORIAS ================= -->
-<section class="categorias">
-    <div class="container">
-        <h2 class="section-title">Nossas Categorias</h2>
-        <p class="section-subtitle">Clique para ver os produtos de cada linha</p>
-
-        <div class="categorias-grid">
-            <a href="#produtos" class="categoria-card"><h3>Produtos Natura</h3></a>
-            <a href="#produtos" class="categoria-card"><h3>Produtos O Boticário</h3></a>
-            <a href="#produtos" class="categoria-card"><h3>Produtos Eudora</h3></a>
-            <a href="#produtos" class="categoria-card"><h3>Produtos Jequiti</h3></a>
-            <a href="#produtos" class="categoria-card"><h3>Produtos Avon</h3></a>
-            <a href="#produtos" class="categoria-card"><h3>Produtos Soul Cosméticos</h3></a>
-            <a href="#produtos" class="categoria-card"><h3>Presentes Femininos</h3></a>
-            <a href="#produtos" class="categoria-card"><h3>Presentes Masculinos</h3></a>
-            <a href="#produtos" class="categoria-card"><h3>Parte Infantil</h3></a>
-            <a href="#produtos" class="categoria-card"><h3>Pijamas</h3></a>
-        </div>
-    </div>
-</section>
-
-<!-- ================= PRODUTOS ================= -->
-<section class="produtos" id="produtos">
-    <div class="container">
-        <h2 class="section-title">Produtos em Destaque</h2>
-        <p class="section-subtitle">Encontre o presente perfeito ou o cosmético ideal</p>
-
-        <div class="produtos-grid" id="produtosGrid">
-            <!-- Produtos entram aqui via JavaScript -->
-        </div>
-    </div>
-</section>
-
-<!-- ================= SOBRE ================= -->
-<section class="sobre">
-    <div class="container">
-        <h2 class="section-title">Sobre a Antera Store</h2>
-        <p>Desde 2022 trazendo cuidado através dos melhores cosméticos e carinho através de presentes que encantam.</p>
-        <p>Minha missão é oferecer qualidade e um toque do meu cuidado ao embalar cada presente.</p>
-    </div>
-</section>
-
-<!-- ================= CARRINHO (MODAL) ================= -->
-<div class="cart-modal" id="cartModal">
+  <!-- MODAL CARRINHO -->
+  <div id="cartModal" class="cart-modal" style="display:none;">
     <div class="cart-content">
-        <div class="cart-header">
-            <h3><i class="fas fa-shopping-cart"></i> Seu Carrinho</h3>
-            <button class="close-cart">&times;</button>
-        </div>
+      <button class="close-cart">✖</button>
+      <h2>Seu Carrinho</h2>
 
-        <div class="cart-items" id="cartItems">
-            <p class="empty-cart">Seu carrinho está vazio</p>
-        </div>
+      <div id="cartItems"></div>
 
-        <div class="cart-total">
-            <h4>Total: R$ <span id="cartTotal">0.00</span></h4>
-        </div>
+      <p>Total: R$ <span id="cartTotal">0.00</span></p>
 
-        <div class="cart-buttons">
-            <button class="btn btn-continue">Continuar Comprando</button>
-            <button id="checkoutBtn" type="button" class="btn-checkout">
-  Finalizar Pedido
-</button>
-        </div>
+      <button id="checkoutBtn">Finalizar pedido</button>
     </div>
-</div>
+  </div>
 
-<!-- ================= RODAPÉ ================= -->
-<footer>
-    <div class="container">
-        <h4>Antera Store</h4>
-        <p><i class="fab fa-whatsapp"></i> (37) 98838-1330</p>
-        <p><i class="fas fa-map-marker-alt"></i> São Francisco de Paula - MG</p>
-        <p>© <span id="current-year"></span> Antera Store</p>
-    </div>
-</footer>
-
-<!-- ================= SCRIPTS ================= -->
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
