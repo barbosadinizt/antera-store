@@ -2,11 +2,11 @@
   {
     "nome": "Produto Teste 1",
     "preco": 49.90,
-    "imagem": "/imagens/logo.png"
+    "imagem": "/imagens/produto1.jpg"
   },
   {
     "nome": "Produto Teste 2",
     "preco": 79.90,
-    "imagem": "/imagens/logo.png"
+    "imagem": "/imagens/produto2.jpg"
   }
 ]
