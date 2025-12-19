@@ -621,3 +621,21 @@ footer {
         padding: 25px 20px;
     }
 }
+
+#checkoutBtn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+}
+
+#checkoutBtn:hover {
+  opacity: 0.9;
+}
