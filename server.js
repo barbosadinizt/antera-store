@@ -5,24 +5,23 @@ import { fileURLToPath } from "url";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Necessário para __dirname funcionar com ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Middleware
+// 🔥 SERVE A PASTA PUBLIC
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
-// 👉 SERVIR A PASTA PUBLIC (ISSO ESTAVA FALTANDO OU ERRADO)
-app.use(express.static(path.join(__dirname, "public")));
-
-// Página inicial
+// ROTA PRINCIPAL
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// (depois aqui fica sua rota do Mercado Pago /create_preference)
+// ROTA DE TESTE (IMPORTANTE)
+app.get("/health", (req, res) => {
+  res.send("OK");
+});
 
-// Start
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log("Servidor rodando na porta " + PORT);
 });
