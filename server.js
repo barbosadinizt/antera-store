@@ -1,27 +1,20 @@
-import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Necessário para ES Modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// 🔥 SERVIR A PASTA PUBLIC CORRETAMENTE
-app.use(express.static(path.join(__dirname, "public")));
-
-// JSON
+app.use(cors());
 app.use(express.json());
 
-// Página principal
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+// 🔥 ISSO AQUI É O QUE FALTAVA
+app.use(express.static(path.join(__dirname, "public")));
+
+// rota de teste
+app.get("/health", (req, res) => {
+  res.send("Servidor OK");
 });
 
-// (seu endpoint de pagamento pode ficar aqui depois)
-
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Servidor rodando na porta", PORT);
 });
